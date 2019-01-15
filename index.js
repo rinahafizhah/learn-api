@@ -1,4 +1,4 @@
-const getDataFilms = () => {
+const getDataFilm = () => {
   fetch("https://swapi.co/api/films")
     .then(response => {
       return response.json();
@@ -7,10 +7,9 @@ const getDataFilms = () => {
       console.log(data);
     });
 };
+getDataFilm();
 
-getDataFilms();
-
-const getDataSwapi = () => {
+const getDataVehicle = () => {
   fetch("https://swapi.co/api/vehicles")
     .then(response => {
       return response.json();
@@ -19,5 +18,18 @@ const getDataSwapi = () => {
       console.log(data.results);
     });
 };
+getDataVehicle();
 
-getDataSwapi();
+const getDataPeople = () => {
+  fetch("https://api.github.com/users/rinahafizhah/followers")
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      const array = data.forEach(item => {
+        console.log(`Name : ${item.login}`);
+        document.getElementById("people").innerHTML = "My Followers";
+      });
+    });
+};
+getDataPeople();
