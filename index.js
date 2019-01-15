@@ -27,8 +27,11 @@ const getDataPeople = () => {
     })
     .then(data => {
       const array = data.forEach(item => {
-        console.log(`Name : ${item.login}`);
-        document.getElementById("people").innerHTML = "My Followers";
+        console.log(`Name : ${item.login}URL Profile : ${item.html_url}`);
+        document.getElementById("people").innerHTML += `
+          <li>Name : ${item.login}</li>
+          <li>URL Profile : ${item.html_url}`
+        
       });
     });
 };
